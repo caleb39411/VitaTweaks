@@ -111,16 +111,14 @@ static int sceSysmoduleLoadModuleInternalWithArgPatched(SceUInt32 id, SceSize ar
   if (res >= 0 && id == SCE_SYSMODULE_INTERNAL_PAF) {
 
     // search for right file
-    SceUID fd = get_warn_file("ux0");
-    if (fd < 0)
-      fd = get_warn_file("ur0");
+    SceUID fd = get_warn_file("ur0");
     if (fd < 0)
       return res;
 
     int size = sceIoLseek32(fd, 0, SCE_SEEK_END);
     sceIoLseek32(fd, 0, SCE_SEEK_SET);
 
-    custom_warning = (wchar_t *)sce_paf_private_malloc(size + 2);
+    custom_warning = (wchar_t *)sce_paf_malloc(size + 2);
     if (!custom_warning) {
       sceIoClose(fd);
       return res;
@@ -132,7 +130,7 @@ static int sceSysmoduleLoadModuleInternalWithArgPatched(SceUInt32 id, SceSize ar
     custom_warning[size / 2] = L'\0';  // null terminate the string
 
     if (custom_warning[0] != 0xFEFF) {
-      sce_paf_private_free(custom_warning);
+      sce_paf_free(custom_warning);
       return res;
     }
 

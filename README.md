@@ -46,14 +46,14 @@ This tweak allows you to set a custom warning message instead of the epilepsy wa
 
 - Fixed crash in system applications
 
-Download [custom_warning.suprx](https://github.com/TheOfficialFloW/VitaTweaks/releases/tag/CustomWarning), edit `ux0:tai/config.txt` and enable it in `*main` as follows:
+Download [custom_warning.suprx](https://github.com/TheOfficialFloW/VitaTweaks/releases/tag/CustomWarning), edit `ur0:tai/config.txt` and enable it in `*main` as follows:
 
 ```
 *main
 ux0:tai/custom_warning.suprx
 ```
 
-Then write your custom text to `ux0:tai/custom_warning.txt` using **Unicode Little Endian** format (with BOM, the bytes `FF FE` at the beginning of your file). You can also have no text by creating the file with the BOM only.
+Then write your custom text to `ur0:tai/custom_warning.txt` using **Unicode Little Endian** format (with BOM, the bytes `FF FE` at the beginning of your file). You can also have no text by creating the file with the BOM only.
 
 ## Support
 
